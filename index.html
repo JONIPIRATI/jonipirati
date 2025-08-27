@@ -41,6 +41,7 @@
             text-align: center;
             border-bottom-left-radius: 50% 20%;
             border-bottom-right-radius: 50% 20%;
+            transition: all 0.3s ease;
         }
 
         header h1 {
@@ -68,7 +69,8 @@
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 8px 25px var(--shadow-color);
-            border-left: 6px solid var(--primary-color);
+            /* Se reemplaza el borde izquierdo por un borde superior */
+            border-top: 5px solid var(--primary-color);
         }
 
         section h2 {
@@ -176,7 +178,7 @@
             flex-wrap: wrap;
         }
 
-        .contacto-info a {
+        .contacto-info a, .contacto-info span {
             color: white;
             text-decoration: none;
             display: inline-flex;
@@ -208,16 +210,58 @@
             transform: translateX(0);
         }
         
-        /* --- Diseño Responsivo --- */
+        /* --- OPTIMIZACIÓN PARA MÓVILES --- */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
+            header {
+                padding: 3rem 1rem;
+                /* Se simplifica la curva para pantallas pequeñas */
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
+            
+            header h1 {
+                font-size: 2.3rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            main {
+                margin-top: 1.5rem;
+                padding: 0 1rem;
+            }
+
             section {
                 padding: 1.5rem;
+                margin-bottom: 1.5rem;
             }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+            }
+
             .competencia-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            footer {
+                padding: 2.5rem 1rem;
+            }
+
+            .contacto-info {
+                /* Se apilan los elementos verticalmente */
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -258,41 +302,41 @@
                 <article class="card hidden">
                     <h3><i class="fas fa-robot"></i> Automatización y Robótica</h3>
                     <ul>
-                        <li><strong>Autómatas Programables (PLCs):</strong> Dominio de la programación avanzada de PLCs <strong>Siemens (S7-1200/1500)</strong> mediante <strong>TIA Portal</strong>. Competencia en lógica de control, HMI y puesta en servicio.</li>
-                        <li><strong>Robótica Industrial:</strong> Experiencia en programación y optimización de <strong>robots ABB</strong> con controladores IRC5, incluyendo aplicaciones de manipulación (pick and place).</li>
-                        <li><strong>Sistemas de Visión Artificial:</strong> Implementación y calibración para control de calidad, detección de defectos y guiado de robots.</li>
-                        <li><strong>Comunicaciones Industriales:</strong> Configuración y diagnóstico de redes <strong>Profinet, Profibus y Modbus (TCP/RTU)</strong> para garantizar la integridad de datos.</li>
+                        <li><strong>Autómatas Programables (PLCs):</strong> Dominio de la programación avanzada de PLCs <strong>Siemens (S7-1200/1500)</strong> mediante <strong>TIA Portal</strong>. Competencia en lógica de control secuencial y continua, HMI y puesta en servicio.</li>
+                        <li><strong>Robótica Industrial:</strong> Experiencia en programación, configuración y optimización de <strong>robots ABB</strong> con controladores IRC5, gestión de herramientas (TCPs) e integración de I/O para aplicaciones de manipulación.</li>
+                        <li><strong>Sistemas de Visión Artificial:</strong> Implementación y calibración para control de calidad, detección de defectos, verificación dimensional y guiado de robots.</li>
+                        <li><strong>Comunicaciones Industriales:</strong> Configuración, despliegue y diagnóstico de redes <strong>Profinet, Profibus y Modbus (TCP/RTU)</strong> para garantizar la integridad de datos entre dispositivos.</li>
                     </ul>
                 </article>
 
                 <article class="card hidden">
                     <h3><i class="fas fa-microchip"></i> Electrónica</h3>
                     <ul>
-                        <li><strong>Diseño y Desarrollo de Hardware:</strong> Gestión del ciclo completo de diseño de PCBs para pasarelas de comunicación y dispositivos <strong>IoT</strong> de bajo consumo.</li>
-                        <li><strong>Software de Diseño (ECAD):</strong> Dominio avanzado de <strong>KiCad</strong> y conocimientos de <strong>Proteus</strong> para diseño de esquemas y enrutado de PCBs.</li>
-                        <li><strong>Microcontroladores:</strong> Programación de <strong>Arduino, ESP32 (con FreeRTOS) y Raspberry Pi</strong> para sistemas embebidos y prototipado rápido.</li>
-                        <li><strong>Soldadura y Reparación:</strong> Especialización en técnicas de soldadura de alta precisión y micro-soldadura (<strong>SMD</strong> y <strong>THT</strong>) para reparación a nivel de componente.</li>
-                        <li><strong>Sistemas IoT y Domótica:</strong> Desarrollo e integración de soluciones IoT con protocolos como MQTT y HTTP/REST, centralizadas en plataformas como <strong>Home Assistant</strong>.</li>
+                        <li><strong>Diseño y Desarrollo de Hardware:</strong> Gestión del ciclo completo de diseño de PCBs, desde la conceptualización hasta la fabricación, para pasarelas de comunicación y dispositivos <strong>IoT</strong> de bajo consumo.</li>
+                        <li><strong>Software de Diseño (ECAD):</strong> Dominio avanzado de <strong>KiCad</strong> y conocimientos de <strong>Proteus</strong> para diseño de esquemas, enrutado de PCBs y generación de ficheros de fabricación.</li>
+                        <li><strong>Microcontroladores:</strong> Programación de <strong>Arduino, ESP32 (con FreeRTOS) y Raspberry Pi</strong> para sistemas embebidos, prototipado rápido y sistemas de adquisición de datos (DAQ).</li>
+                        <li><strong>Soldadura y Reparación:</strong> Especialización en técnicas de soldadura de alta precisión y micro-soldadura (<strong>SMD</strong> y <strong>THT</strong>) para reparación y retrabajo de equipos a nivel de componente.</li>
+                        <li><strong>Sistemas IoT y Domótica:</strong> Desarrollo e integración de soluciones IoT con protocolos como MQTT y HTTP/REST, centralizadas en plataformas como <strong>Home Assistant</strong> para una experiencia de usuario unificada.</li>
                     </ul>
                 </article>
 
                 <article class="card hidden">
                     <h3><i class="fas fa-server"></i> Tecnologías de la Información (IT)</h3>
                     <ul>
-                        <li><strong>Sistemas y Virtualización:</strong> Administración de <strong>Windows Server, Linux (Debian, Ubuntu)</strong> y entornos de virtualización con <strong>Proxmox, Hyper-V y VMware ESXi</strong>.</li>
-                        <li><strong>Redes y Comunicaciones:</strong> Diseño, instalación y mantenimiento de infraestructuras de red, incluyendo cableado estructurado, Wi-Fi y administración de dominios web.</li>
-                        <li><strong>Sistemas de Seguridad y Videovigilancia:</strong> Instalación y mantenimiento de sistemas <strong>CCTV (analógico e IP)</strong>, NVRs y control de accesos. Participación en el diseño de un centro de analítica de vídeo por IA.</li>
-                        <li><strong>Desarrollo y Software:</strong> Competencia en <strong>C++</strong> y <strong>Java</strong>. Experiencia en desarrollo web con <strong>WordPress</strong> y gestión de bases de datos <strong>SQL</strong>.</li>
-                        <li><strong>Administración de Sistemas:</strong> Gestión de directivas de grupo (<strong>GPO</strong>) en <strong>Microsoft Active Directory</strong> y ensamblaje de equipos a medida.</li>
+                        <li><strong>Sistemas y Virtualización:</strong> Administración avanzada de <strong>Windows Server, Linux (Debian, Ubuntu)</strong> y entornos de virtualización con hipervisores Tipo 1 (<strong>Proxmox, Hyper-V, VMware ESXi</strong>).</li>
+                        <li><strong>Redes y Comunicaciones:</strong> Diseño, instalación y mantenimiento de infraestructuras de red, incluyendo cableado estructurado (UTP, Fibra Óptica), Wi-Fi, radioenlaces y administración de dominios web y DNS.</li>
+                        <li><strong>Sistemas de Seguridad y Videovigilancia:</strong> Instalación y mantenimiento de sistemas integrales de seguridad, abarcando <strong>CCTV (analógico e IP)</strong>, NVRs, alarmas y control de accesos. Participación en el diseño de un centro de analítica de vídeo por IA.</li>
+                        <li><strong>Desarrollo y Software:</strong> Competencia en <strong>C++</strong> y <strong>Java</strong>. Experiencia en desarrollo y mantenimiento de sitios web con <strong>WordPress</strong> y gestión de bases de datos relacionales (<strong>SQL</strong>).</li>
+                        <li><strong>Administración de Sistemas:</strong> Gestión de directivas de grupo (<strong>GPO</strong>) en <strong>Microsoft Active Directory</strong> y ensamblaje, configuración y puesta en servicio de equipos informáticos a medida.</li>
                     </ul>
                 </article>
 
                 <article class="card hidden">
                     <h3><i class="fas fa-bolt"></i> Electricidad y Mantenimiento</h3>
                     <ul>
-                        <li><strong>Instalaciones Eléctricas:</strong> Diseño de instalaciones de baja tensión (REBT), mantenimiento de cuadros eléctricos y diagnóstico de incidencias.</li>
-                        <li><strong>Diseño Eléctrico (EPLAN):</strong> Elaboración de esquemas eléctricos y documentación técnica completa para proyectos de automatización utilizando <strong>EPLAN Electric P8</strong>.</li>
-                        <li><strong>Mantenimiento Integral de Infraestructuras:</strong> Gestión de grupos electrógenos, SAI, centros de transformación, calderas industriales, climatización (HVAC) y sistemas de protección contra incendios (PCI).</li>
+                        <li><strong>Instalaciones Eléctricas:</strong> Diseño de instalaciones de baja tensión en conformidad con el REBT, mantenimiento correctivo y preventivo de cuadros eléctricos, y diagnóstico eficiente de incidencias.</li>
+                        <li><strong>Diseño Eléctrico (EPLAN):</strong> Elaboración de esquemas eléctricos detallados y generación de documentación técnica completa para proyectos de automatización utilizando <strong>EPLAN Electric P8</strong>.</li>
+                        <li><strong>Mantenimiento Integral de Infraestructuras:</strong> Gestión del mantenimiento de infraestructuras críticas para garantizar la continuidad operativa (grupos electrógenos, SAI, centros de transformación, calderas, climatización (HVAC), unidades de tratamiento de aire y sistemas PCI).</li>
                     </ul>
                 </article>
             </div>
